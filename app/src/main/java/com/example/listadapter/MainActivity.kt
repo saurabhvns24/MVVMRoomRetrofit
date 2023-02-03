@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val quotesServiceAPI = RetrofitHelper.getInstance().create(QuotesServiceAPI::class.java)
-        val repository = QuoteRepository(quotesServiceAPI)
+        val repository = (application as QuoteApplication).repository
         quoteViewModel =
             ViewModelProvider(this, QuoteViewModelFactory(repository))[QuoteViewModel::class.java]
         quoteViewModel.quotes.observe(this, Observer {
