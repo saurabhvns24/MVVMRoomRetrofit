@@ -1,4 +1,4 @@
-package com.example.listadapter
+package com.example.listadapter.model
 
 data class QuoteList(
     val count: Int,
